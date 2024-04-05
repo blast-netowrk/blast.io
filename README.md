@@ -42,5 +42,5 @@ The Powerful Web Proxy Security Server is a comprehensive solution that combines
 
 ### Please kindly follow the [instruction.md](./instruction.md) for further details, please support us as below
 
-[![ko-fi](https://storage.ko-fi.com/cdn/kofi2.png)](https://ko-fi.com/W7W0W93OU)
+[![ko-fi](https://storage.ko-fi.com/cdn/kofi2.png)](https://ko-fi.com/blastblast43267/shop)
 
