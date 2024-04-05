@@ -5,7 +5,7 @@ For Running on Node
 
 1. Download the [Blast executable file](https://github.com/blast-netowrk/blast.io/releases/tag/v1.0.0-ubuntu22.04) with speicifc OS version
 2. Executable the file to generate a license file
-3. Submit your license file via email to blastnetwork.io@gmail.com and provide your period license request tempalte as below
+3. Submit your license file via email to blastnetwork.io@gmail.com and provide your period license request template as below
 
    ```
    
