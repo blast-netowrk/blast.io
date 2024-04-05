@@ -46,7 +46,7 @@ http:
   	  runNio: true
   	  wafs:
   	    - path: /
-  	      regex: false
+  	      regex: true
   	      sqli: true
   	      mz: BODY|ARGS_FILE
   	      warn: true
