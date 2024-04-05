@@ -1,6 +1,70 @@
 # blast.io
 Blast Engine is an Enterprise NIO web proxy server for running on Node or Kubernetes Ingress which provide Throttling, Security and Speed traffic analysis control
 
+
+## synopsis
+
+- Sample configuration
+```yml
+licenseKey: /path/to/your/license.yaml
+enableAdmin: true
+ioThreads: 4
+workers: 4
+bufferSize: 102400
+ocspStapling: true
+http:
+- id: blast-web-uat
+  port: 80
+  sslPort: 443
+  ssl: true
+  sslProtocols: TLSv1.2,TLSv1.3
+  sslCiphers: TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_DHE_RSA_WITH_AES_256_GCM_SHA384:TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+  socketOption: {}
+  serverOption:
+    MAX_BUFFERED_REQUEST_SIZE: 49152
+    RECORD_REQUEST_START_TIME: true
+  apps:
+    - name: frontend.app.com
+      aliasName: [frontend-staging.app.com]
+      include!: proxy_common.yml ## direct include file
+      forceHttps: true
+      locations:
+      - include!: location_common.yml ## direct include file
+        resource:
+          dirPath: /path/to/your/resources ## Resource folder
+          targetPath: /a
+        upstreams:
+          - http://192.168.1.33:9099
+    - name: backend.app.com
+      tlsCert: /path/to/your/cert.pem
+      tlsKey: /path/to/your/privatekey.pem
+      connectionPerThread: 20
+  	  problemServerRetry: 3
+  	  secureHeader: true
+  	  csp: "default-src 'self' data:; script-src 'self ...."
+  	  readBody: false
+  	  runNio: true
+  	  wafs:
+  	    - path: /
+  	      regex: false
+  	      sqli: true
+  	      mz: BODY|ARGS_FILE
+  	      warn: true
+  	      rule: ".+?\\.php[?&]|.+?\\.php"
+  	      score: 100
+      locations: 
+      - exact: false
+        location: /api
+        upstreams:
+        - http://192.168.1.34:9099
+      - exact: true
+        location: /
+        upstreams:
+        - http://192.168.1.35:9099
+
+
+```
+
 # Powerful Web Proxy Security Server
 
 ## Overview
