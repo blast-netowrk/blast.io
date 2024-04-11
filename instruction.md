@@ -21,7 +21,8 @@ For Running on Node
    ```
 
 4. We will process your request and provide a link with the payment to obtain a license key
-5. Please note that this license key is strictly tied to the machine's service account and cannot be changed
+5. Please ensure your server node is accessible to ap-southeast-1.aws.data.mongodb-api.com for online verification.
+6. Please note that this license key is strictly tied to the machine's service account, it is changable by email to blastnetwork support, there will be 1-3 days window without any downtime.
    
 
 For Running on Ingress
